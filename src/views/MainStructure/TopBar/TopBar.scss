@@ -1,0 +1,48 @@
+#topbar {
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#topbar > i {
+    font-size: 150%;
+    cursor: pointer;
+}
+
+#topbar-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.saudacao-container {
+    display: grid;
+    grid-template-areas: "user-icon nome dropdown-icon"
+                         "user-icon saudacao dropdown-icon";
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.saudacao-container > .user-icon {
+    grid-area: user-icon;
+    padding: 10px;
+}
+
+.saudacao-container > .saudacao {
+    grid-area: saudacao;
+    font-size: 70%;
+}
+
+.saudacao-container > .nome {
+    grid-area: nome;
+    font-size: 85%;
+}
+
+.saudacao-container > .dropdown-icon {
+    grid-area: dropdown-icon;
+    padding: 10px;
+}

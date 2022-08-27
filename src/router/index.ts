@@ -1,25 +1,65 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import MainStructure from '../views/MainStructure/MainStructure.vue'
+import Login from '../views/Login/Login.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/',
+    name: 'MainStructure',
+    component: MainStructure,
+    children: [
+      {
+        path: 'students',
+        name: 'Students',
+        component: () => import('../views/Students/Students.vue')
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: () => import('../views/About.vue')
+      },
+      {
+        path: 'users',
+        name: 'Users',
+        component: () => import('../views/About.vue'),
+        children: [
+          {
+            path: "config",
+            name: "Users Config",
+            component: () => import('../views/Config/Config.vue')
+          }
+        ]
+      },
+      {
+        path: 'classes',
+        name: 'Classes',
+        component: () => import('../views/About.vue')
+      },
+      {
+        path: 'config',
+        name: 'Config',
+        component: () => import('../views/Config/Config.vue')
+      }
+    ]
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.name != "Login") {
+    if (localStorage.getItem('login') != "guilherme") {
+      next({ name: 'Login' })
+    } else next()
+  } else next()
 })
 
 export default router

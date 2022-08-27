@@ -1,0 +1,148 @@
+@import "@/styles/variables.scss";
+
+#sidebar {
+
+    & > #sidebar-header {
+        width: 100%;
+        height: $topbar-height;
+        cursor: pointer;
+        text-align: center;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        & > a {
+
+            height: 80%;
+            & > img {
+                height: 100%;
+            }
+        }
+    }
+
+    & > #sidebar-menu {
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 0px;
+    
+        & > .menu-item {
+            display: block;
+            cursor: pointer;
+            padding: 10px 17px;
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+            border-left: 3px solid transparent;
+
+            position: relative;
+        
+            transition: padding 0.3s;
+    
+            &:hover {
+                padding-left: 27px;
+            }
+
+            &.router-link-active {
+                border-left: 3px solid darkcyan;
+            }
+
+            & > i {
+                width: 30px;
+            }
+
+            & > .sub-menu {
+                transition: max-height 0.3s;
+                max-height: 0;
+                overflow: hidden;
+
+                list-style-type: none;
+
+                padding: 0;
+                margin: 0;
+
+                &::before {
+                    content: "v";
+                    position: absolute;
+                    right: 20px;
+                    font-size: 50%;
+                    top: 12px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                & > li {
+                    margin: 10px 20px;
+
+                    & > a {
+                        border-bottom: 3px solid transparent;
+                        color: inherit;
+                        text-decoration: none;
+
+                        &.router-link-exact-active {
+                            color: darkcyan;
+
+                            &::before {
+                                content: " ";
+                                position: absolute;
+                                top: 0;
+                                left: -3px;
+                                bottom: 0;
+                                width: 3px;
+                                background-color: darkcyan;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    &.min {
+
+        & > #sidebar-header {
+
+            & > a {
+                height: 60%;
+            }
+
+        }
+
+        & > #sidebar-menu {
+            text-align: center;
+
+            & > .menu-item {
+                
+                &:hover {
+                    padding-left: 17px;
+                }
+
+                & > i {
+                    width: 100%;
+                }
+
+                & > span {
+                    display: none;
+                }
+
+                & > .sub-menu {
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    background-color: #2A3F54;
+
+                    &::before {
+                        content: "";
+                    }
+                }
+
+            }
+        }
+
+    }
+
+}

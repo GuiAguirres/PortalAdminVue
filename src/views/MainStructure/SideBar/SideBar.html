@@ -1,0 +1,50 @@
+<nav id="sidebar" class="">
+    <div id="sidebar-header">
+        <router-link to="/">
+            <img src="@/assets/logo.png">
+        </router-link>
+    </div>
+
+    <div id="sidebar-menu">
+
+        <router-link to="/students" class="menu-item">
+            <i class="fa fa-user"></i>
+            <span>Alunos</span>
+        </router-link>
+
+        <router-link to="/classes" class="menu-item">
+            <i class="fa fa-calendar"></i>
+            <span>Turmas</span>
+        </router-link>
+
+        <a class="menu-item">
+            <i class="fa fa-user"></i>
+            <span>Cursos</span>
+            <ul class="sub-menu">
+                <li>
+                    <router-link to="/courses">Cursos</router-link>
+                </li>
+                <li>
+                    <router-link to="/disciplinas">Disciplinas</router-link>
+                </li>
+            </ul>
+        </a>
+
+        <a class="menu-item">
+            <i class="fa fa-user"></i>
+            <span>Usuários</span>
+            <ul class="sub-menu">
+                <li>
+                    <router-link to="/users/config">Configurações</router-link>
+                </li>
+                <li>Professores</li>
+            </ul>
+        </a>
+
+        <router-link to="/config" class="menu-item">
+            <i class="fa fa-cogs"></i>
+            <span>Configurações</span>
+        </router-link>
+
+    </div>
+</nav>

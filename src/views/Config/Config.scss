@@ -1,0 +1,19 @@
+.config-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.config > div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.config > div > div {
+    width: 48%;
+}
+
+button {
+    margin: 20px;
+}

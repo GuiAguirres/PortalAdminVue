@@ -1,0 +1,79 @@
+button {
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        position: relative;
+
+        &.loading {
+                color: transparent !important;
+                &::after {
+                        content: "";
+                        position: absolute;
+                        width: 16px;
+                        height: 16px;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        border: 4px solid transparent;
+                        border-radius: 50%;
+                        animation: button-loading-spinner 1s ease infinite;
+                }
+        }
+
+        &.dark {
+                background-color: #2a3f54;
+                color: lightcyan;
+
+                &.loading::after {
+                        border-top-color: lightcyan;
+                }
+
+                &__outlined {
+                        background-color: transparent;
+                        color: #2a3f54;
+                        border: 2px solid #2a3f54;
+                        &.loading::after {
+                                border-top-color: #2a3f54;
+                        }
+                }
+        }
+
+        &.light {
+                background-color: whitesmoke;
+                color: #2a3f54;
+                &.loading::after {
+                        border-top-color: #2a3f54;
+                }
+
+                &__outlined {
+                        background-color: transparent;
+                        color: whitesmoke;
+                        border: 2px solid whitesmoke;
+                        &.loading::after {
+                                border-top-color: whitesmoke;
+                        }
+                }
+        }
+
+        &:hover {
+                filter: brightness(85%);
+        }
+
+        &:active {
+                filter: brightness(70%);
+        }
+}
+
+@keyframes button-loading-spinner {
+        from {
+                transform: rotate(0turn);
+        }
+
+        to {
+                transform: rotate(1turn);
+        }
+}

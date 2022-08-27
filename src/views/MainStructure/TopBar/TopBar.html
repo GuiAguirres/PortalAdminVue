@@ -1,0 +1,25 @@
+<nav id="topbar">
+      
+    <i id="sidebar-collapse" class="fa fa-bars" @click="toggleSidebar"></i>
+
+    <div id="topbar-menu">
+      <div class="saudacao-container dropdown__target">
+        <i class="user-icon fa fa-user"></i>
+        <span class="saudacao">Porto Alegre</span>
+        <span class="nome">Guilherme Aguirres</span>
+        <i class="dropdown-icon fa fa-angle-down"></i>
+
+        <Dropdown id="topbar-menu__dropdown">
+          <ul class="dropdown__list">
+            <li class="dropdown__item">
+              <a class="dropdown__link">Trocar Polo</a>
+            </li>
+            <li class="dropdown__item">
+              <router-link class="dropdown__link" to="login">Sair</router-link>
+            </li>
+          </ul>
+        </Dropdown>
+
+      </div>
+    </div>
+</nav>
